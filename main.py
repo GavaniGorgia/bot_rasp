@@ -18,7 +18,7 @@ if b == 0 :
 if b ==1 :
     b = 'чёт'
 
-bot = telebot.TeleBot('2119464296:AAHHvLPvNioNKU58ucHa6cA1zeaHhsRUi18')
+bot = telebot.TeleBot('5205958199:AAHgNJKEtMXC5D2v3Ou_OVxckLiHFdkkE4E')
 
 conn = psycopg2.connect(database = "timetable",
                                 user="postgres",
@@ -128,6 +128,7 @@ def reply_message(message):
             c = 'чёт/нечёт' 
         cursor.execute("SELECT subject ,room ,time FROM timetable WHERE day=%s and type=%s",[str(a),str(c)])
         records = cursor.fetchall()
+        print(records)
         result = a +'\n'+ '---------------'+'\n'
         i = 0
         for arr in records :
